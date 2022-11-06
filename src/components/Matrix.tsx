@@ -1,17 +1,11 @@
 import { ReactNode, useMemo } from 'react'
 import useSWR from 'swr'
+import type { Aggregations, DataField, DataValue } from '../types'
 
-type DataField = {
-  property: string
-  name: string
-}
-
-type DataValue = DataField & {
-  type: 'count'
-}
-
-const typeNames: { [key in DataValue['type']]: (val: any) => string } = {
-  count: (val) => `Count of ${val}`,
+const typeNames: {
+  [key in Aggregations]: (val: any) => string
+} = {
+  count: (val: any) => `Count of ${val}`,
 }
 
 export function Matrix(
@@ -136,7 +130,7 @@ export function Matrix(
                   )
                   : (
                     <th className={appearance?.classNames?.columnHeader?.(rows ? 1 : 0, values)}>
-                      {typeNames[values.type](values.name)}
+                      {(typeNames as any)[(values as any).type](values.name)}
                     </th>
                   )}
               </tr>

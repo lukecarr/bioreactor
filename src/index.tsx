@@ -1,31 +1,7 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
+import type { Table } from './types'
+
 export * from './components/Matrix'
-
-import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next'
-
-type DataField = {
-  property: string
-  name: string
-}
-
-type DataValueFunctions<T> = {
-  [key in keyof T]: () => DataField & {
-    type: key
-  }
-}
-
-type DataValue =
-  & DataField
-  & DataValueFunctions<{
-    count: true
-  }>
-
-type Table<T> =
-  & {
-    [column in keyof T]: DataValue
-  }
-  & {
-    handler: (source: (req: NextApiRequest) => Promise<T[]>) => NextApiHandler
-  }
 
 function parseFields(query: string | string[] | undefined) {
   if (typeof query === 'undefined') return []
