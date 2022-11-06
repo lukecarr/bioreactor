@@ -1,0 +1,61 @@
+{
+  "name": "bioreactor",
+  "version": "0.0.1-alpha.1",
+  "homepage": "https://bioreactor.js.org",
+  "bugs": "https://github.com/lukecarr/bioreactor/issues",
+  "repository": "lukecarr/bioreactor",
+  "author": "Luke Carr <me+oss@carr.sh>",
+  "license": "MIT",
+  "sideEffects": false,
+  "source": "src/index.tsx",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "rm -rf dist; parcel build --no-source-maps",
+    "test": "vitest --coverage",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs"
+  },
+  "dependencies": {
+    "swr": "^1.3.0"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "latest",
+    "@parcel/transformer-typescript-types": "latest",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "@vitest/coverage-c8": "latest",
+    "dprint": "latest",
+    "next": ">9",
+    "parcel": "latest",
+    "react": ">16.13.0",
+    "react-dom": ">16.13.0",
+    "typescript": "latest",
+    "vite": "latest",
+    "vitepress": "latest",
+    "vitest": "latest",
+    "vue": "latest"
+  },
+  "resolutions": {
+    "typescript": "~4.7"
+  },
+  "peerDependencies": {
+    "next": ">=9",
+    "react": ">=16.13",
+    "react-dom": ">=16.13"
+  },
+  "packageManager": "pnpm@7.14.2",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "@parcel/core"
+      ]
+    }
+  }
+}
