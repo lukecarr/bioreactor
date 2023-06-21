@@ -1,11 +1,34 @@
 {
-  "name": "Node.js & TypeScript",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
-  "postCreateCommand": "npm i -g pnpm && pnpm install",
+  "name": "Node.js v18",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "18"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "telemetry.enableTelemetry": false,
+        "redhat.telemetry.enabled": false,
+        "vulnCost.sendStatistics": false,
+        "editor.renderWhitespace": "all",
+        "editor.renderControlCharacters": true,
+        "editor.formatOnSave": true,
+        "files.insertFinalNewline": true
+      },
+      "extensions": [
+        "christian-kohler.npm-intellisense",
+        "gruntfuggly.todo-tree",
+        "mkxml.vscode-filesize",
+        "seatonjiang.gitmoji-vscode",
+        "mutantdino.resourcemonitor",
+        "GitHub.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "DavidAnson.vscode-markdownlint"
+      ]
+    }
+  },
   "remoteUser": "node",
-  "extensions": [
-    "dprint.dprint",
-    "eamodio.gitlens",
-    "christian-kohler.npm-intellisense"
-  ]
+  "postCreateCommand": "pnpm install"
 }
