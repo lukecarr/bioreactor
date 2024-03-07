@@ -41,7 +41,7 @@
     "vue": "latest"
   },
   "resolutions": {
-    "typescript": "~4.7"
+    "typescript": "~5.4.0"
   },
   "peerDependencies": {
     "next": ">=9",
